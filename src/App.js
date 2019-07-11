@@ -15,6 +15,7 @@ class App extends Component {
         description: undefined,
         temp: undefined,
         humidity: undefined,
+        image: undefined,
         error: undefined
       }
   }
@@ -27,21 +28,26 @@ class App extends Component {
     const data = await endpoint_call.json();
     if(city && country){
       console.log(data)
+      console.log(data.weather[0].main)
       this.setState({
         city: data.name,
         country: data.sys.country,
+        main: data.weather[0].main,
         description: data.weather[0].description,
-        temp: data.main.temp * 1.8 + 32,
+        temp: Math.round(data.main.temp * 1.8 + 32),
         humidity: data.main.humidity,
+        image: '/images/' + data.weather[0].main.toLowerCase() + '.jpg',
         error: ""
       })
     } else {
       this.setState({
         city: undefined,
         country: undefined,
+        main: undefined,
         description: undefined,
         temp: undefined,
         humidity: undefined,
+        image: undefined,
         error: "Please enter a city and state."
       })
     }
@@ -51,21 +57,27 @@ class App extends Component {
 
   render() {
     return (
-
-      <div className="App">
-        <div className="header-container">
-          <Header />
-        </div>
-        <div className="weather-container">
-          <UserInput fetchWeather={this.fetchWeather}/>
-          <Weather
-          city={this.state.city}
-          country={this.state.country}
-          description={this.state.description}
-          temp={this.state.temp}
-          humidity={this.state.humidity}
-          error={this.state.error}
-          />
+      <div className="page-wrapper">
+        <div className="App">
+          <div className="column">
+            <div className="header-column">
+              <Header src={this.state.image}/>
+            </div>
+          </div>
+          <div className="column">
+            <div className="weather-column">
+              <UserInput fetchWeather={this.fetchWeather}/>
+              <Weather
+              city={this.state.city}
+              country={this.state.country}
+              main={this.state.main}
+              description={this.state.description}
+              temp={this.state.temp}
+              humidity={this.state.humidity}
+              error={this.state.error}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
