@@ -2,6 +2,14 @@
 
 This is a weather app I built using React and https://openweathermap.org/api.
 
+## July 10-12 Updates
+
+1. I added state for a main weather category as well as icons. This way the icon will change depending on the locations's main weather description.
+
+2. Rounded temperature to nearest integer.
+
+3. Added banner and styling to the application using flexbox.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
