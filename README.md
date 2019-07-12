@@ -2,6 +2,8 @@
 
 This is a weather app I built using React and https://openweathermap.org/api.
 
+I deployed the application with Heroku. You can view it here: https://react-weather-app-tw.herokuapp.com/
+
 ## July 10, 2019 Updates
 
 1. I added state for a main weather category as well as icons. This way the icon will change depending on the locations's main weather description.
