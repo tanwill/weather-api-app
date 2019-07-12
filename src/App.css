@@ -2,13 +2,19 @@ html, body, .App {
   height: 100%;
 }
 
+html, body{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
 body {
-  background: linear-gradient(to right, #e67e22, #e74c3c);
+    background: linear-gradient(to right, #e67e22, #e74c3c);
 }
 
 .page-wrapper {
   margin: 20px auto;
-  width: 80%;
+  width: 95%;
   height: 600px;
   min-height: 600px;
   color: #FFFFFF;
@@ -31,34 +37,56 @@ body {
 
 .header-column, .weather-column {
   height: 100%;
-  display: flex;
 }
 
 .header-column {
+  display: flex;
   background: url('/images/banner.jpg') right/cover;
   align-items: center;
   justify-content: center;
 }
 
+.App__header div {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .weather-column {
+  display: inline-table;
   background-color: #082231;
   flex-direction: column;
   padding: 20px;
 }
 
 .weather__info {
-  width: 60%;
+  width: 100%;
   font-size: 20px;
   font-weight: 200;
   letter-spacing: 2px;
-  margin-left: 20px;
-  margin-right: 20px;
+  text-align: center;
+}
+
+
+.weather__image {
+  animation: weather-image-spin infinite 20s linear;
+  height: 100px;
+  pointer-events: none;
+}
+
+@keyframes weather-image-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .weather__key {
   color: #f16051;
-  border-bottom: solid 2px rgba(255,255,255,0.06);
-  padding: 20px 0 20px 0;
+  padding: 15px 0 15px 0;
   font-weight: 400;
 }
 
@@ -85,60 +113,33 @@ body {
     background: skyblue;
     color: #FFFFFF;
     padding: 10px;
+    margin: 10px 0px;
     border: 2px solid darkblue;
 }
 
 
-
-
-/*
-.App {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-*/
-.App__logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App__user-input input[type="text"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #f16051;
+  color: #fff !important;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #082231 inset;
+    -webkit-text-fill-color: #fff !important;
 }
 
 @media only screen and (max-width: 1024px) {
   .App {
     flex-direction: column;
   }
-}
-
-input[type="text"] {
-  background-color: transparent;
-  border: 0;
-  border-bottom: solid 1px #f16051;
-  width: 30%;
-  padding-bottom: 4px;
-  color: #fff !important;
-  font-weight: lighter;
-  letter-spacing: 2px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 20px;
-}
-
-input[type="text"] { 
-    outline: none;
-}
-
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #082231 inset;
-    -webkit-text-fill-color: #fff !important;
 }
