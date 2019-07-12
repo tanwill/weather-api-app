@@ -2,6 +2,12 @@ import React from 'react';
 
   const Weather = props => (
   	<div className="weather__info">
+     {
+      props.src && <div className="weather__key">
+        <img src={props.src} className="weather__image" alt="logo" />
+      </div>
+     }
+
   	 {
   	 	props.city && props.country && <p className="weather__key"> Location:
   	 		<span className="weather__value"> { props.city }, { props.country }</span>

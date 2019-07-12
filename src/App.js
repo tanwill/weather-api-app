@@ -36,7 +36,7 @@ class App extends Component {
         description: data.weather[0].description,
         temp: Math.round(data.main.temp * 1.8 + 32),
         humidity: data.main.humidity,
-        image: '/images/' + data.weather[0].main.toLowerCase() + '.jpg',
+        image: '/images/' + data.weather[0].main.toLowerCase() + '.png',
         error: ""
       })
     } else {
@@ -61,7 +61,7 @@ class App extends Component {
         <div className="App">
           <div className="column">
             <div className="header-column">
-              <Header src={this.state.image}/>
+              <Header />
             </div>
           </div>
           <div className="column">
@@ -74,6 +74,7 @@ class App extends Component {
               description={this.state.description}
               temp={this.state.temp}
               humidity={this.state.humidity}
+              src={this.state.image}
               error={this.state.error}
               />
             </div>
